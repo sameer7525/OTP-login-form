@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OTP Login</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<body>
+<div class="container">
+
+  <h2>Please Login</h2>
+
+  <input type="text" id="number" placeholder="+91XXXXXXXXXX">
+  <button onclick="sendOTP()">Send OTP</button>
+
+  <br><br>
+
+  <input type="text" id="otp" placeholder="Enter OTP">
+  <button onclick="verifyOTP()">Verify OTP</button>
+
+  <div id="recaptcha-container"></div>
+
+  <p id="message"></p>
+
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+</body>
+<script src="index.js"></script>
+</html>
