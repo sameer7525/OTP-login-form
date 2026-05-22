@@ -23,6 +23,8 @@ function sendOTP() {
 
   const message = document.getElementById("message");
 
+  const sendBtn = document.getElementById("sendBtn");
+
   if(number === ""){
     message.style.color = "red";
     message.innerHTML = "Please enter mobile number";
@@ -51,6 +53,9 @@ function sendOTP() {
     return;
   }
 
+  sendBtn.innerHTML = "Sending...";
+  sendBtn.disabled = true;
+
 
   firebase.auth().signInWithPhoneNumber(
     number,
@@ -64,6 +69,10 @@ function sendOTP() {
     // alert("OTP Sent");
     message.style.color = "green";
     message.innerHTML = "OTP Send Successfully";
+
+    sendBtn.innerHTML = "Send OTP";
+    sendBtn.disabled = false;
+    
     setTimeout(()=>{
       message.innerHTML = " ";
     },2000);
@@ -73,6 +82,9 @@ function sendOTP() {
   .catch(function(error){
 
     alert(error.message);
+
+    sendBtn.innerHTML = "Send OTP";
+    sendBtn.disabled = false;
 
   });
 
@@ -108,6 +120,7 @@ function verifyOTP(){
   .catch(function(error){
 
     alert("Wrong OTP");
+
 
   });
 
